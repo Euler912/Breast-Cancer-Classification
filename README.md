@@ -1,43 +1,40 @@
-# 📊 End-to-End Machine Learning Classification Analysis
+# 🎗️ Breast Cancer Classification (PyTorch & Scikit-Learn)
 
-This repository contains a comprehensive implementation of various **Supervised Learning** algorithms for classification tasks. The project demonstrates the full Data Science lifecycle: from Exploratory Data Analysis (EDA) and rigorous preprocessing to model training, hyperparameter tuning, and performance evaluation.
+This repository contains a comprehensive implementation of classification algorithms to diagnose breast cancer tumors using the **Breast Cancer Wisconsin (Diagnostic) Dataset**.
+
+The project demonstrates a rigorous Data Science lifecycle: from Exploratory Data Analysis (EDA) and feature selection to the implementation of a custom **Neural Network in PyTorch** to capture non-linear patterns that classical linear models might miss.
 
 ## 🚀 Project Overview
 
-The objective of this project is to build and compare robust classification models to predict **[Insert Target Variable, e.g., Customer Churn / Disease Presence / Spam]**.
-The analysis focuses on understanding the trade-offs between model complexity, interpretability, and accuracy.
+The objective is to build and compare robust classification models to predict whether a tumor is **Malignant** (Cancerous) or **Benign** (Non-cancerous).
+
+The analysis focuses on **minimizing False Negatives** (predicting Benign when it's actually Malignant), which is the most critical metric in medical diagnosis contexts.
 
 ### Key Features
-* **Data Preprocessing:** Handling missing values, feature scaling (StandardScaler/MinMaxScaler), and encoding categorical variables.
-* **Exploratory Data Analysis (EDA):** Statistical analysis and visualization of feature distributions and correlations.
-* **Model Implementation:** Implementation of multiple classifiers to benchmark performance.
-* **Evaluation Metrics:** Comparison using Accuracy, Precision, Recall, F1-Score, and ROC-AUC curves.
+* **Deep Learning Implementation:** Built a custom Feed-Forward Neural Network (MLP) using `torch.nn.Module` with manual training loops.
+* **Data Preprocessing:** Tensor conversion, feature scaling (StandardScaler) for convergence stability, and encoding.
+* **Feature Engineering:** Analysis of feature importance to reduce dimensionality and noise.
+* **Evaluation Metrics:** Comparison using Accuracy, Recall (Sensitivity), and ROC-AUC curves.
 
 ## 🛠️ Tech Stack
 
-* **Language:** Python 3.x
-* **Libraries:**
-    * `pandas` & `numpy` (Data Manipulation)
-    * `matplotlib` & `seaborn` (Visualization)
-    * `scikit-learn` (Modeling & Evaluation)
+* **Deep Learning:** `PyTorch` (torch, torch.nn, torch.optim)
+* **Machine Learning:** `scikit-learn`
+* **Data Manipulation:** `pandas`, `numpy`
+* **Visualization:** `matplotlib`, `seaborn`
 
 ## 🧠 Methodology & Models
 
 The notebook follows a structured pipeline:
 
-1.  **Data Loading & Cleaning:**
-    * Parsing the dataset and analyzing structure.
-    * Handling null values and duplicates.
-2.  **Feature Engineering:**
-    * Correlation analysis (Heatmap) to identify multicollinearity.
-    * Feature selection/extraction based on statistical significance.
-3.  **Model Training:**
-    The following algorithms were implemented and compared:
-    * **Logistic Regression** (Baseline model)
-    * **K-Nearest Neighbors (KNN)**
-    * **Support Vector Machines (SVM)** (Exploring different kernels)
-    * **Decision Trees & Random Forest**
-    * **Naive Bayes**
-4.  **Model Evaluation:**
-    * Confusion Matrix visualization.
-    * Cross-Validation to ensure model stability.
+1.  **Data Loading & Tensor Conversion:**
+    * Loading the Wisconsin dataset and converting generic arrays to PyTorch Tensors.
+2.  **Feature Selection:**
+    * Analyzing correlation to remove multicollinear features that affect model weights.
+3.  **Model Training & Comparison:**
+    * **Logistic Regression:** Implemented as a baseline to test linear separability.
+    * **PyTorch Neural Network:** A custom Multi-Layer Perceptron (MLP) designed to optimize the decision boundary for non-linear feature interactions.
+4.  **Performance Analysis:**
+    * Tracking Loss convergence over epochs.
+    * Confusion Matrix visualization to audit False Negatives.
+ 
